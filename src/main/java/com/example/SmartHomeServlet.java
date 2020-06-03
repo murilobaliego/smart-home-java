@@ -48,7 +48,7 @@ public class SmartHomeServlet extends HttpServlet {
   {
     try {
       GoogleCredentials credentials =
-          GoogleCredentials.fromStream(getClass().getResourceAsStream("smart-home-key.json"));
+          GoogleCredentials.fromStream(getClass().getResourceAsStream("/smart-home-key.json"));
       actionsApp.setCredentials(credentials);
     } catch (Exception e) {
       LOG.error("couldn't load credentials");
@@ -60,6 +60,7 @@ public class SmartHomeServlet extends HttpServlet {
       throws IOException, ServletException {
     String body = req.getReader().lines().collect(Collectors.joining());
     LOG.info("doPost, body = {}", body);
+    LOG.debug("doPost, body = {}", body);
     Map<String, String> headerMap = getHeaderMap(req);
     try {
       String response = actionsApp.handleRequest(body, headerMap).get();

@@ -51,6 +51,13 @@ dependencies {
   implementation 'com.google.auth:google-auth-library-oauth2-http:0.18.0'
   implementation 'com.google.api:api-common:1.8.1'
 
+  // https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt
+  compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+// https://mvnrepository.com/artifact/org.eclipse.paho/org.eclipse.paho.client.mqttv3
+  compile group: 'org.eclipse.paho', name: 'org.eclipse.paho.client.mqttv3', version: '1.2.4'
+// https://mvnrepository.com/artifact/joda-time/joda-time
+  compile group: 'joda-time', name: 'joda-time', version: '2.3'
+
   testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
   testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.0'
   testImplementation 'io.rest-assured:rest-assured:4.2.0'

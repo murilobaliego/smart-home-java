@@ -38,6 +38,7 @@ import com.google.cloud.firestore.QuerySnapshot;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
+import com.google.firebase.database.*;
 
 public class MyDataStore {
 
@@ -77,7 +78,6 @@ public class MyDataStore {
     if (token == null) {
       token = "Bearer 123access";
     }
-    System.out.println("Token received : " + token.substring(7));
     ApiFuture<QuerySnapshot> userQuery =
         database.collection("users").whereEqualTo("fakeAccessToken", token.substring(7)).get();
     QuerySnapshot usersSnapshot = userQuery.get();
@@ -686,7 +686,6 @@ public class MyDataStore {
 
         // action.devices.traits.OnOff
       case "action.devices.commands.OnOff":
-        System.out.println("action OnOff handling");
         database
             .collection("users")
             .document(userId)
